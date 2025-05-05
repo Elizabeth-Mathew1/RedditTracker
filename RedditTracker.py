@@ -5,11 +5,11 @@ import praw
 from datetime import datetime
 import pytz
 
-CLIENT_ID = "" ## Reddit API client ID
-SECRET_KEY = "" ## Reddit API secret key
+CLIENT_ID = '' ## Reddit API client ID
+SECRET_KEY = '' ## Reddit API secret key
+NOTION_TOKEN = '' ## Notion API token
+DATABASE_ID = '' ## Notion database ID
 
-NOTION_TOKEN = "" ## Notion API token
-DATABASE_ID = "" ## Notion database ID
 
 notion_headers = {
     'Authorization': f'Bearer {NOTION_TOKEN}',
@@ -35,12 +35,12 @@ def get_reddit_posts():
     reddit = praw.Reddit(
         client_id=CLIENT_ID,
         client_secret=SECRET_KEY,
-        user_agent='postTracker/0.0.1 by elizObserves',
-        username='elizObserves',  ## Reddit username
-        password='Elizabeth123!@!' ## Reddit password
+        user_agent='', ## User Agent
+        username='',  ## Reddit username
+        password='' ## Reddit password
     )
     
-    user = reddit.redditor('elizObserves')  ## Reddit username
+    user = reddit.redditor('')  ## Reddit username
     reddit_posts = []
     for submission in user.submissions.new(limit=None):
         date, day, time = time_extractor(submission.created_utc)
