@@ -43,7 +43,7 @@ def get_reddit_posts():
         password= REDDIT_PASSWORD
     )
     
-    user = reddit.redditor('')  ## Reddit username
+    user = reddit.redditor(REDDIT_USERNAME)  ## Reddit username
     reddit_posts = []
     for submission in user.submissions.new(limit=None):
         date, day, time = time_extractor(submission.created_utc)
