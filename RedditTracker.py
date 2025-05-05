@@ -8,7 +8,10 @@ import pytz
 CLIENT_ID = '' ## Reddit API client ID
 SECRET_KEY = '' ## Reddit API secret key
 NOTION_TOKEN = '' ## Notion API token
-DATABASE_ID = '' ## Notion database ID
+DATABASE_ID = '' ## Notion database 
+REDDIT_USERNAME = '' ## Reddit username
+REDDIT_PASSWORD = '' ## Reddit password
+USER_AGENT = '' ## User agent
 
 
 notion_headers = {
@@ -35,9 +38,9 @@ def get_reddit_posts():
     reddit = praw.Reddit(
         client_id=CLIENT_ID,
         client_secret=SECRET_KEY,
-        user_agent='', ## User Agent
-        username='',  ## Reddit username
-        password='' ## Reddit password
+        user_agent= USER_AGENT,
+        username= REDDIT_USERNAME,
+        password= REDDIT_PASSWORD
     )
     
     user = reddit.redditor('')  ## Reddit username
